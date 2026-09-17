@@ -1,0 +1,29 @@
+name: Run Aira WhatsApp Bot
+
+on:
+  schedule:
+    # පැය 5කට සැරයක් ස්වයංක්‍රීයව Re-run වේ
+    - cron: '0 */5 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run WhatsApp Bot
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SESSION_BASE64: ${{ secrets.SESSION_BASE64 }}
+        run: node index.js
