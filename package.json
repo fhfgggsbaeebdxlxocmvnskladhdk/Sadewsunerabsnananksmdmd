@@ -1,0 +1,17 @@
+{
+  "name": "aira-whatsapp-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@google/genai": "^0.1.1",
+    "@whiskeysockets/baileys": "^6.7.9",
+    "dotenv": "^16.4.5",
+    "mime-types": "^2.1.35",
+    "qrcode-terminal": "^0.12.0",
+    "speedydl": "^1.1.2"
+  }
+}
